@@ -12,19 +12,23 @@ namespace NLogger.Controllers
 {
     public class HomeController : BaseController
     {
+        private readonly NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        private readonly NLog.Logger peachlogger = NLog.LogManager.GetLogger("PeachOrder");
+
         public ActionResult Index()
         {
-            Logger logger = LogManager.GetCurrentClassLogger();
+            //Logger logger = LogManager.GetCurrentClassLogger();   
+            peachlogger.Debug("test log");
+
             try
             {
-                //logger.Debug("Error occured in");
+                logger.Debug("Error occured in");
                 LogManager.Configuration.Variables["user"] = "milind";
                 try
                 {
                     int x = 0;
                     int y = 5;
-                    int z = y / x;
-                   
+                    int z = y / x;                   
                 }
                 catch (Exception ex)
                 {
@@ -51,17 +55,13 @@ namespace NLogger.Controllers
                 int z = y / x;
             }
             catch (Exception ex)
-            {
-
-
-            }
+            { }
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
