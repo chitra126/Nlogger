@@ -1,3 +1,3 @@
 # Nlogger
-MVC Logging using NLog
+MVC Logging using NLog with mailing 
 
