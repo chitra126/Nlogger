@@ -23,6 +23,7 @@ namespace NLogger.Controllers
             try
             {
                 logger.Debug("Error occured in");
+                logger.Debug("commit in dev");
                 LogManager.Configuration.Variables["user"] = "milind";
                 try
                 {
